@@ -79,3 +79,16 @@ button {
 button:hover {
     background-color: #555;
 }
+.site-box {
+    border: 1px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.site-box h2 {
+    margin: 0;
+}
+.site-box h2 a {
+    text-decoration: none;
+    color: #333;
+}
