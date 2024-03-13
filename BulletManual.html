@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Godot Bullet Script Manual</title>
+</head>
+<body>
+
+<header>
+    <h1>Game Development Manuals</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="content">
+    <h2>Godot Bullet Script Manual</h2>
+
+    <p>Welcome to the Godot Bullet Script Manual! This guide will help you create a bullet script for your game.</p>
+
+    <h3>Step 1: Setting Up the Scene</h3>
+    <p>Before you create the bullet script, make sure you have a scene set up with the necessary nodes. You may want to create a player node and an enemy node.</p>
+
+    <h3>Step 2: Creating the Bullet Script</h3>
+    <p>Open the script editor in Godot and create a new script for your bullet. Use the following template as a starting point:</p>
+
+    <div class="code-container">
+        <pre><code class="godot" id="bulletScript">
+extends KinematicBody2D
+
+var speed = 300
+
+func _process(delta):
+    # Move the bullet forward
+    move_and_slide(Vector2.RIGHT * speed)
+</code></pre>
+        <button onclick="copyCode()">Copy Code</button>
+    </div>
+
+    <p>Feel free to customize the script according to your game's requirements.</p>
+
+    <h3>Conclusion</h3>
+    <p>Congratulations! You have successfully created a basic bullet script in Godot. Experiment with different features and functionalities to enhance your game.</p>
+</div>
+
+<script>
+    function copyCode() {
+        const codeElement = document.getElementById('bulletScript');
+        const range = document.createRange();
+        range.selectNode(codeElement);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        alert('Code copied to clipboard!');
+    }
+</script>
+
+</body>
+</html>
