@@ -125,6 +125,25 @@
     </div>
     <h3>Trinn 3: Opprette kuleskriptet</h3>
     <p>Under Kule noden kan du lage en timer som du kobler til scriptet du nettop laget og den vil automatisk koble seg sammen med functionen for timeren</p>
+    <h3>Trinn 3: Opprette kuleskriptet</h3>
+    <p>For å kalle på kulen kan du bruke denne koden </p>
+        <div class="code-container">
+            <pre><code class="godot" id="SpawnBullet">
+                const BULLET = preload("res://Prefabs/bullet.tscn")
+                var ShootPoint: Node3D
+                var BulletSpeed: float
+                var BulletGravity: float
+                var BulletDamage: float
+                func SpawnBullet():
+                    var clonebullet = BULLET.instantiate()
+                    rootNode.add_child(clonebullet)
+                    clonebullet.global_transform.origin = ShootPoint.global_transform.origin
+                    clonebullet.global_transform.basis = ShootPoint.global_transform.basis
+                    clonebullet.scale = Vector3(1, 1, 1)
+                    clonebullet.Initialize(ShootPoint.global_transform, BulletSpeed, BulletGravity, BulletDamage)
+            </code></pre>
+            <button onclick="copyCodeCallBullet()">Kopier Kode</button>
+        </div>
     <p>Du kan gjerne tilpasse skriptet i henhold til spillets krav.</p>
 
     <h3>Konklusjon</h3>
@@ -132,6 +151,15 @@
 </div>
 
 <script>
+    function copyCodeCallBullet() {
+        const codeElement = document.getElementById('SpawnBullet');
+        const range = document.createRange();
+        range.selectNode(codeElement);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+    }
     function copyCode() {
         const codeElement = document.getElementById('bulletScript');
         const range = document.createRange();
@@ -140,7 +168,6 @@
         window.getSelection().addRange(range);
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
-        alert('Kode kopiert til utklippstavlen!');
     }
 </script>
 
